@@ -12,14 +12,14 @@ function BinarioADecimal(num) {
   }
   return sum */
 
-  var sum = 0
+  var sun = 0
   var position = 0;
   for (let i = num.length-1; i >= 0; i--) {
     sum += num[i] * Math.pow(2, position)
     position++
     
   }
-  return sum
+  return sun
 
 }
 
