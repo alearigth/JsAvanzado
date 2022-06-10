@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 
 /*
 Definir las funciones recursivas nFactorial y nFibonacci.
@@ -15,9 +15,21 @@ Como ejercicio adicional y completamente opcional, al terminar de resolver este 
 */
 
 function nFactorial(n) {
+  // factorial de un numero es igual a n * el factorial del anterior numero n = n * (n-1)
+
+  if (n === 1 || n === 0) return 1;
+  if (n < 0) return "error";
+
+  return n * nFactorial(n - 1);
 }
 
 function nFibonacci(n) {
+  // n = (n-1) + (n-2)
+
+  if (n === 0 || n === 1) return n;
+  if (n < 0) return "error";
+
+  return nFibonacci(n - 1) + nFibonacci(n - 2);
 }
 
 /*
@@ -30,8 +42,20 @@ Pueden utilizar class o función constructora.
 */
 
 function Queue() {
+  this.arr = [];
 
+  this.enqueue = function (element) {
+    this.arr.push(element);
+  };
 }
+
+Queue.prototype.dequeue = function () {
+  if (this.arr.length === 0) return undefined;
+  return this.arr.shift();
+};
+Queue.prototype.size = function () {
+  return this.arr.length;
+};
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
@@ -39,5 +63,5 @@ function Queue() {
 module.exports = {
   Queue,
   nFactorial,
-  nFibonacci
+  nFibonacci,
 };
