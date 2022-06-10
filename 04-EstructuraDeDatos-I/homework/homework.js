@@ -43,11 +43,14 @@ Pueden utilizar class o función constructora.
 
 function Queue() {
   this.arr = [];
-
-  this.enqueue = function (element) {
+  /* this.enqueue = function (element) {
     this.arr.push(element);
-  };
+  }; */
 }
+
+Queue.prototype.enqueue = function (element) {
+  this.arr.push(element);
+};
 
 Queue.prototype.dequeue = function () {
   if (this.arr.length === 0) return undefined;
